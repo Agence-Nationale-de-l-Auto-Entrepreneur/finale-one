@@ -1,0 +1,7 @@
+Flask
+supabase
+pandas
+openpyxl
+gunicorn
+flask-cors
+websockets==10.4
