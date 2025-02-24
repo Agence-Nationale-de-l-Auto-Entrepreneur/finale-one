@@ -66,21 +66,10 @@ def run_pipeline():
         with st.expander("📜 View Processing Logs", expanded=False):
             st.text("\n".join(logs))
 
-        # Upload resulting file
-        st.subheader("🔄 Upload the Processed File for Review")
-        resulting_file = st.file_uploader("Upload Processed Excel File", type=["xlsx"])
 
-        if resulting_file:
-            with open(FINAL_FILE_PATH, "wb") as f:
-                f.write(resulting_file.getbuffer())
-
-            # Display processed file
-            df = pd.read_excel(FINAL_FILE_PATH)
-            st.subheader("📌 Processed Data Preview")
-            st.dataframe(df)
 
             # Provide Download Button
-            with open(FINAL_FILE_PATH, "rb") as f:
+        with open(FINAL_FILE_PATH, "rb") as f:
                 st.download_button(
                     label="📥 Download Final Processed File",
                     data=f,
